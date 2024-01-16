@@ -1,0 +1,64 @@
+h1{
+ text-align: center;
+ margin-top: 47px;
+ font-family: Arial, Helvetica, sans-serif;
+ font-weight: normal;
+}
+
+#container2{
+  margin-top: 70px;
+}
+
+#sub-container{ 
+ width: 770px;
+ height: 72px;
+ border-color: black;
+ border-width: 1px;
+ border-style: solid;
+ margin-top: 10px;
+ margin-left: 360px;
+}
+
+#sub-container2{ 
+ width: 770px;
+ height: 30px;
+ border-color: black;
+ border-width: 1px;
+ border-style: solid;
+ margin-top: 19px;
+ margin-left: 360px;
+}
+
+select{
+  margin-top: -5px; 
+  margin-left: 15px;    
+  height: 28px;
+  width: 705px;
+}
+
+.texto{
+  margin-top: 5px;  
+  margin-left: 14px;  
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.descricao{
+ margin-left: 360px;  
+ width: 766px;
+ height: 85px;
+ border-width: 1.5px;
+ border-color: black; 
+ padding: 2px;
+}
+
+.botao{
+  margin-top: 20px;
+  margin-left: 360px;
+  width: 100px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.enviar{
+  font-family: Arial, Helvetica, sans-serif;
+}
