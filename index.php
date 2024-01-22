@@ -12,6 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>    
     <script src="./js/enviar.js"></script>   
     <script src="./js/pesquisar.js"></script>
+    <script src="./js/obter_programa.js"></script>
     <title>Ficha de Iniciativa</title>
 </head>
 <body>
