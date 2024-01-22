@@ -26,7 +26,7 @@
       <select name="eixo_relacionado" class="select2" required>
       <option value="">Selecione um eixo:</option>   
       <?php 
-        $exibicao1 = $conn->prepare('SELECT DISTINCT cod_eixo_estrategico, nome_eixo_estrategico from eixo');
+        $exibicao1 = $conn->prepare('SELECT cod_eixo_estrategico, nome_eixo_estrategico from eixo');
         $exibicao1->execute();
     
         if($exibicao1->rowCount() > 0){
@@ -43,7 +43,7 @@
       <select name="problema_relacionado" class="select2" required>
         <option value="">Selecione um Programa:</option>   
         <?php 
-          $exibicao2 = $conn->prepare('SELECT DISTINCT cod_programa_governo, desc_programa_governo from programa');
+          $exibicao2 = $conn->prepare('SELECT cod_programa_governo, desc_programa_governo from programa');
           $exibicao2->execute();
       
           if($exibicao2->rowCount() > 0){
@@ -61,8 +61,8 @@
       <select name="compromisso_relacionado" class="select2" required>
       <option value="">Selecione um Compromisso:</option> 
       <?php 
-        $exibicao3 = $conn->prepare('SELECT DISTINCT cod_compromisso, desc_compromisso
-        from compromisso ORDER BY cod_compromisso');
+        $exibicao3 = $conn->prepare('SELECT cod_compromisso, desc_compromisso
+        from compromisso');
         $exibicao3->execute();
     
         if($exibicao3->rowCount() > 0){
