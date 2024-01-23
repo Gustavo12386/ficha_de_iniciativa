@@ -10,7 +10,8 @@ $data = ['cod_nome_eixo' => $eixo];
 $exibicao->execute($data);
      
  if($exibicao->rowCount() > 0){
-   while($dado = $exibicao->fetch(PDO::FETCH_ASSOC)){              
+  echo '<option value="">Selecione um Programa:</option>';  
+   while($dado = $exibicao->fetch(PDO::FETCH_ASSOC)){                 
      echo "<option value='{$dado['cod_programa_governo']} - {$dado['desc_programa_governo']}'>
      {$dado['cod_programa_governo']} - {$dado['desc_programa_governo']}</option>";         
     }
