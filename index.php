@@ -9,10 +9,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>  
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>    
-    <script src="./js/enviar.js"></script>   
-    <script src="./js/pesquisar.js"></script>
-    <script src="./js/obter_programa.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>   
+    <script src="./js/filtro.js"></script>
     <title>Ficha de Iniciativa</title>
 </head>
 <body>
@@ -30,7 +28,8 @@
     
         if($exibicao1->rowCount() > 0){
           while($dado = $exibicao1->fetch(PDO::FETCH_ASSOC)){          
-            echo "<option value='{$dado['cod_eixo_estrategico']} - {$dado['nome_eixo_estrategico']}'>{$dado['cod_eixo_estrategico']} - {$dado['nome_eixo_estrategico']}</option>";          
+            echo "<option value='{$dado['cod_eixo_estrategico']} - {$dado['nome_eixo_estrategico']}'>
+            {$dado['cod_eixo_estrategico']} - {$dado['nome_eixo_estrategico']}</option>";          
           }
         }  
       ?>
@@ -63,10 +62,12 @@
         $exibicao3 = $conn->prepare('SELECT cod_compromisso, desc_compromisso
         from compromisso');
         $exibicao3->execute();
-    
+        
         if($exibicao3->rowCount() > 0){
-          while($dado = $exibicao3->fetch(PDO::FETCH_ASSOC)){         
-            echo "<option value='{$dado['cod_compromisso']} - {$dado['desc_compromisso']}'>{$dado['cod_compromisso']} - {$dado['desc_compromisso']}</option>";         
+          while($dado = $exibicao3->fetch(PDO::FETCH_ASSOC)){  
+                       
+            echo "<option value='{$dado['cod_compromisso']} - {$dado['desc_compromisso']}'>
+            {$dado['cod_compromisso']} - {$dado['desc_compromisso']}</option>";         
           }
         }  
       ?>
