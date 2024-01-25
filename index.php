@@ -10,7 +10,8 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>  
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>   
-    <script src="./js/filtro.js"></script>
+    <script src="./js/primeiro_filtro.js"></script>
+    <script src="./js/segundo_filtro.js"></script>
     <title>Ficha de Iniciativa</title>
 </head>
 <body>
@@ -57,20 +58,7 @@
     <div id="sub-container">
       <p class="texto">Compromisso</p> 
       <select name="compromisso_relacionado" id="compromisso_relacionado" class="select2" required>
-      <option value="">Selecione um Compromisso:</option> 
-      <?php 
-        $exibicao3 = $conn->prepare('SELECT cod_compromisso, desc_compromisso
-        from compromisso');
-        $exibicao3->execute();
-        
-        if($exibicao3->rowCount() > 0){
-          while($dado = $exibicao3->fetch(PDO::FETCH_ASSOC)){  
-                       
-            echo "<option value='{$dado['cod_compromisso']} - {$dado['desc_compromisso']}'>
-            {$dado['cod_compromisso']} - {$dado['desc_compromisso']}</option>";         
-          }
-        }  
-      ?>
+        <option value="">Selecione um Compromisso:</option>      
       </select>
     
     </div>  
