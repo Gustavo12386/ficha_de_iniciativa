@@ -9,11 +9,15 @@ $(function () {
         type: 'POST',
         data: $(this).serialize(),
         success: function (data) {
-          $('.inscricao').html(data);
+          $('.inscricao').html(data);          
 
-          $('#eixo_relacionado').val('').trigger('change'); 
-          $('#programa_relacionado').val('').trigger('change');
-          $('#compromisso_relacionado').val('').trigger('change');
+          // Redefina os valores dos selects para as opções padrão
+          $('#eixo_relacionado').val('');
+          $('#programa_relacionado').val('');
+          $('#compromisso_relacionado').val('');
+
+          // Recrie o Select2
+          $('.select2').select2();
 
           $('.form')[0].reset();
 
@@ -27,5 +31,5 @@ $(function () {
         }      
       });
       return false;
-    });
+    });  
   });
