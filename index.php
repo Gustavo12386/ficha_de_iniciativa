@@ -58,7 +58,18 @@
     <div id="sub-container">
       <p class="texto">Compromisso</p> 
       <select name="compromisso_relacionado" id="compromisso_relacionado" class="select2" required>
-        <option value="">Selecione um Compromisso:</option>      
+        <option value="">Selecione um Compromisso:</option>    
+        <?php 
+          $exibicao3 = $conn->prepare('SELECT cod_compromisso, desc_compromisso from compromisso');
+          $exibicao3->execute();
+      
+          if($exibicao3->rowCount() > 0){
+            while($dado = $exibicao3->fetch(PDO::FETCH_ASSOC)){              
+              echo "<option value='{$dado['cod_compromisso']} - {$dado['desc_compromisso']}'>
+              {$dado['cod_compromisso']} - {$dado['desc_compromisso']}</option>";         
+            }
+          }  
+        ?>
       </select>
     
     </div>  
