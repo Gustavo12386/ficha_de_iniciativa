@@ -23,7 +23,7 @@
     <div id="sub-container">   
       <p class="texto">Eixo Estratégico</p>    
       <select name="eixo_relacionado" id="eixo_relacionado" class="select2" required>
-      <option value="" selected>Selecione um eixo:</option>   
+      <option value="" selected>Selecione um Eixo:</option>   
       <?php 
         $exibicao1 = $conn->prepare('SELECT cod_eixo_estrategico, nome_eixo_estrategico from eixo');
         $exibicao1->execute();
@@ -89,6 +89,7 @@
      <br>
      <input type="submit" value="Enviar" name="Enviar" class="botao">
   </form>
+  <div class="inscricao"></div> 
   </div> 
  </div>
 </body>

@@ -10,7 +10,7 @@ $stmt->execute($data);
 
 $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-echo '<option value="">Selecione uma subcategoria</option>';
+echo '<option value="">Selecione uma Compromisso:</option>';
 
 foreach ($resultados as $option) {   
 ?>
