@@ -23,7 +23,7 @@
     <div id="sub-container">   
       <p class="texto">Eixo Estratégico</p>    
       <select name="eixo_relacionado" id="eixo_relacionado" class="select2" required>
-      <option value="" selected>Selecione um Eixo:</option>   
+      <option value="">Selecione um Eixo:</option>   
       <?php 
         $exibicao1 = $conn->prepare('SELECT cod_eixo_estrategico, nome_eixo_estrategico from eixo');
         $exibicao1->execute();
@@ -41,7 +41,7 @@
     <div id="sub-container">
       <p class="texto">Programa</p> 
       <select name="programa_relacionado" id="programa_relacionado" class="select2" required>
-        <option value="" selected>Selecione um Programa:</option>   
+        <option value="">Selecione um Programa:</option>   
         <?php 
           $exibicao2 = $conn->prepare('SELECT cod_programa_governo, desc_programa_governo from programa');
           $exibicao2->execute();
@@ -59,7 +59,7 @@
     <div id="sub-container">
       <p class="texto">Compromisso</p> 
       <select name="compromisso_relacionado" id="compromisso_relacionado" class="select2" required>
-        <option value="" selected>Selecione um Compromisso:</option>    
+        <option value="">Selecione um Compromisso:</option>    
         <?php 
           $exibicao3 = $conn->prepare('SELECT cod_compromisso, desc_compromisso from compromisso');
           $exibicao3->execute();
