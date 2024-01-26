@@ -14,7 +14,7 @@ echo '<option value="">Selecione uma subcategoria</option>';
 
 foreach ($resultados as $option) {   
 ?>
-    <option value="<?php echo $option['id_compromisso'];?>">
+    <option value="<?php echo $option['cod_compromisso'] . '-' . $option['desc_compromisso'];?>">
     <?php echo $option['cod_compromisso'] . '-' . $option['desc_compromisso'];?></option>   
 <?php
 }

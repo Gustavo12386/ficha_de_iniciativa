@@ -10,6 +10,7 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>  
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>   
+    <script src="./js/enviar.js"></script>
     <script src="./js/primeiro_filtro.js"></script>
     <script src="./js/segundo_filtro.js"></script>
     <title>Ficha de Iniciativa</title>
@@ -18,11 +19,11 @@
 <div id="container">  
   <h1>Ficha de Iniciativa</h1>  
   <div id="container2">    
-  <form class="form" id="form" action="post/Acao.php" method="POST">  
+  <form class="form" id="form" action="./post/Acao.php" method="POST">  
     <div id="sub-container">   
       <p class="texto">Eixo Estratégico</p>    
       <select name="eixo_relacionado" id="eixo_relacionado" class="select2" required>
-      <option value="">Selecione um eixo:</option>   
+      <option value="" selected>Selecione um eixo:</option>   
       <?php 
         $exibicao1 = $conn->prepare('SELECT cod_eixo_estrategico, nome_eixo_estrategico from eixo');
         $exibicao1->execute();
@@ -40,7 +41,7 @@
     <div id="sub-container">
       <p class="texto">Programa</p> 
       <select name="programa_relacionado" id="programa_relacionado" class="select2" required>
-        <option value="">Selecione um Programa:</option>   
+        <option value="" selected>Selecione um Programa:</option>   
         <?php 
           $exibicao2 = $conn->prepare('SELECT cod_programa_governo, desc_programa_governo from programa');
           $exibicao2->execute();
@@ -58,7 +59,7 @@
     <div id="sub-container">
       <p class="texto">Compromisso</p> 
       <select name="compromisso_relacionado" id="compromisso_relacionado" class="select2" required>
-        <option value="">Selecione um Compromisso:</option>    
+        <option value="" selected>Selecione um Compromisso:</option>    
         <?php 
           $exibicao3 = $conn->prepare('SELECT cod_compromisso, desc_compromisso from compromisso');
           $exibicao3->execute();

@@ -5,8 +5,6 @@ require 'Insert.php';
 
 $envio = new Insert();
 
-var_dump($_POST);
-
 $eixo = $_POST['eixo_relacionado'];
 $programa = $_POST['programa_relacionado'];
 $compromisso = $_POST['compromisso_relacionado'];

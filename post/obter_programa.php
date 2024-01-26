@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $programas = [];
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $programas[] = [
-                'valor' => $row['cod_programa_governo'],
+                'valor' => $row['cod_programa_governo'] . ' - ' . $row['desc_programa_governo'],
                 'texto' => $row['cod_programa_governo'] . ' - ' . $row['desc_programa_governo']
             ];
         }

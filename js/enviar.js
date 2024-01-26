@@ -1,7 +1,7 @@
 $(function () {
     $('.form').submit(function () {
       $.ajax({
-        url: 'post/Acao.php',
+        url: './post/Acao.php',
         type: 'POST',
         data: $(this).serialize(),
         success: function (data) {
