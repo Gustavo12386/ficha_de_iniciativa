@@ -6,11 +6,15 @@ $(function () {
         type: 'POST',
         data: $(this).serialize(),
         success: function (data) {
-          
-          $('.inscricao').html(data);
-          // Recrie o Select2
-          $('.select2').select2();
-          $('.form')[0].reset();
+
+            // Limpar campos específicos
+            $('textarea[name="problema"]').val('');
+            $('textarea[name="causas_criticas"]').val('');
+            $('textarea[name="acoes_criticas"]').val('');
+
+            $('.inscricao').html(data);
+            // Recrie o Select2
+            $('.select2').select2();          
 
           Swal.fire({
             title: 'Dados enviados com sucesso!',
