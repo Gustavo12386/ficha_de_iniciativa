@@ -13,6 +13,8 @@ $causas = $_POST['causas_criticas'];
 $acoes = $_POST['acoes_criticas'];
 
 if($envio->enviar($eixo, $programa, $compromisso, $problema, $causas, $acoes) == false){
+   session_start();
+   $_SESSION['error'] = $error;
    header("Location: erro.php?mensagem=erro");
 }
 ?>

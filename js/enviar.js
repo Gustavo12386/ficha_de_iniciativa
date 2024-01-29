@@ -6,11 +6,10 @@ $(function () {
         type: 'POST',
         data: $(this).serialize(),
         success: function (data) {
-          $('.inscricao').html(data);       
-
+          
+          $('.inscricao').html(data);
           // Recrie o Select2
           $('.select2').select2();
-
           $('.form')[0].reset();
 
           Swal.fire({
