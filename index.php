@@ -77,6 +77,26 @@
      <div id="sub-container2">
      <p class="texto">Problema</p>  
      </div>
+     <?php
+      $cod_problema = $conn->prepare('SELECT id FROM medidas ORDER BY id desc LIMIT 1');
+      $cod_problema->execute();
+      if($cod_problema->rowCount() == null)
+      {       
+        echo "<input type='hidden' name='cod_problema' value='1' >";
+      } 
+      else if($cod_problema->rowCount() > 0)
+      {
+        while($dado = $cod_problema->fetch(PDO::FETCH_ASSOC))
+        {
+           $dado['id'];
+           if($dado > 0)
+           {
+             $newId = $dado['id'] + 1;             
+             echo "<input type='hidden' name='cod_problema' value='$newId'> ";            
+           }
+        }
+      }
+    ?> 
      <textarea class="descricao" name="problema" required></textarea>
      <div id="sub-container2">
      <p class="texto">Causas Críticas</p>   
