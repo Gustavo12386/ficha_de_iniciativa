@@ -99,12 +99,52 @@
     ?> 
      <textarea class="descricao" name="problema" required></textarea>
      <div id="sub-container2">
-     <p class="texto">Causas Críticas</p>   
+      <p class="texto">Causas Críticas</p>       
      </div>
+      <?php
+        $cod_causas = $conn->prepare('SELECT id FROM medidas ORDER BY id desc LIMIT 1');
+        $cod_causas->execute();
+        if($cod_causas->rowCount() == null)
+        {       
+          echo "<input type='hidden' name='cod_causas' value='1' >";
+        } 
+        else if($cod_causas->rowCount() > 0)
+        {
+          while($dado = $cod_causas->fetch(PDO::FETCH_ASSOC))
+          {
+            $dado['id'];
+            if($dado > 0)
+            {
+              $newId = $dado['id'] + 1;             
+              echo "<input type='hidden' name='cod_causas' value='$newId'> ";            
+            }
+          }
+        }
+      ?> 
      <textarea class="descricao" name="causas_criticas" required></textarea>
      <div id="sub-container2">
      <p class="texto">Ações Críticas</p>    
      </div>
+      <?php
+        $cod_acoes = $conn->prepare('SELECT id FROM medidas ORDER BY id desc LIMIT 1');
+        $cod_acoes->execute();
+        if($cod_acoes->rowCount() == null)
+        {       
+          echo "<input type='hidden' name='cod_acoes' value='1' >";
+        } 
+        else if($cod_acoes->rowCount() > 0)
+        {
+          while($dado = $cod_acoes->fetch(PDO::FETCH_ASSOC))
+          {
+            $dado['id'];
+            if($dado > 0)
+            {
+              $newId = $dado['id'] + 1;             
+              echo "<input type='hidden' name='cod_acoes' value='$newId'> ";            
+            }
+          }
+        }
+      ?> 
      <textarea class="descricao" name="acoes_criticas" required></textarea>
      <br>
      <input type="submit" value="Enviar" name="Enviar" class="botao">
