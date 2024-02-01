@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">  
+    <link rel="stylesheet" href="./css/index.css?v=2">  
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> 
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">  
@@ -97,7 +97,7 @@
         }
       }
     ?> 
-     <textarea class="descricao" name="problema" required></textarea>
+     <textarea class="descricao" name="problema" maxlength="225" required></textarea>
      <div id="sub-container2">
       <p class="texto">Causas Críticas</p>       
      </div>
@@ -121,7 +121,7 @@
           }
         }
       ?> 
-     <textarea class="descricao" name="causas_criticas" required></textarea>
+     <textarea class="descricao" name="causas_criticas" maxlength="225" required></textarea>
      <div id="sub-container2">
      <p class="texto">Ações Críticas</p>    
      </div>
@@ -145,9 +145,10 @@
           }
         }
       ?> 
-     <textarea class="descricao" name="acoes_criticas" required></textarea>
+     <textarea class="descricao" name="acoes_criticas" maxlength="225" required></textarea>
      <br>
      <input type="submit" value="Enviar" name="Enviar" class="botao">
+     <input type="button" value="Consultar Envios" class="botao2" onClick="window.location.href='lista.php'">
   </form>
   <div class="inscricao"></div> 
   </div> 

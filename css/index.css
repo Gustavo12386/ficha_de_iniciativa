@@ -67,6 +67,14 @@ option{
   cursor: pointer;
 }
 
+.botao2{
+  margin-top: 20px;
+  margin-left: 10px;
+  width: 120px;
+  height: 40px;
+  cursor: pointer;
+}
+
 .enviar{
   font-family: Arial, Helvetica, sans-serif;
 }
