@@ -9,4 +9,10 @@ h1{
   font-weight: normal;
 }
 
-
+.botao3{
+    margin-top: 20px;
+    margin-left: 39px;
+    width: 110px;
+    height: 40px;
+    cursor: pointer;  
+}

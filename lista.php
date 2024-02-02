@@ -14,6 +14,7 @@
       <h1>Informações Registradas</h1>  
     </div>  
     <div id="sub-container">
+
         <table class="table table-bordered border-dark" border ='1'>
          <thead>
             <tr>
@@ -48,6 +49,7 @@
         ?>
        </tbody>
        </table>
+       <input type="button" value="Voltar" class="botao3" onClick="window.location.href='index.php'">
     </div>
 </body>
 </html>
