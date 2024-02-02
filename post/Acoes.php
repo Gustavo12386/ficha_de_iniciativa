@@ -1,6 +1,6 @@
 <?php
 
-class Insert
+class Acoes
 {
 
    public function enviar($eixo, $programa, $compromisso,
@@ -23,6 +23,34 @@ class Insert
       $sql->execute();      
 
       return $sql;
+   }
+
+   public function pesquisar(){
+
+      global $conn;
+
+      if(!empty($_GET['eixo']))
+      {
+         $data = $_GET['eixo'];
+         $sql = "SELECT eixo_relacionado FROM medidas WHERE eixo_relacionado LIKE '$data'";         
+      }
+      else if(!empty($_GET['programa']))
+      {
+         $data = $_GET['programa'];
+         $sql = "SELECT programa_relacionado FROM medidas WHERE programa_relacionado LIKE '$data'";      
+      }
+      else if(!empty($_GET['compromisso']))
+      {
+         $data = $_GET['compromisso'];
+         $sql = "SELECT compromisso_relacionado FROM medidas WHERE compromisso_relacionado LIKE '$data'";         
+      }
+      else
+      { 
+        $sql = "SELECT * FROM medidas";      
+      }  
+      $result = $conn->query($sql);
+      return $result->fetchAll(PDO::FETCH_ASSOC);
+      
    }
 
 }

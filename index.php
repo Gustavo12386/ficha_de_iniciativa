@@ -19,7 +19,7 @@
 <div id="container">  
   <h1>Ficha de Iniciativa</h1>  
   <div id="container2">    
-  <form class="form" id="form" action="./post/Acao.php" method="POST">  
+  <form class="form" id="form" action="./post/Formulario.php" method="POST">  
     <div id="sub-container">   
       <p class="texto">Eixo Estratégico</p>    
       <select name="eixo_relacionado" id="eixo_relacionado" class="select2" required>

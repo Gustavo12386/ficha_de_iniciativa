@@ -1,4 +1,7 @@
-<?php require 'post/config.php';  ?>
+<?php
+require 'post/config.php';
+require 'post/Acoes.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,8 +16,11 @@
     <div id="container">
       <h1>Informações Registradas</h1>  
     </div>  
-    <div id="sub-container">
-
+    <div id="sub-container">           
+    <input type="search" class="form-control w-25" placeholder="pesquisar por eixo" id="pesquisar">
+        <button onclick="searchData()" class="botao4">pesquisar</button>
+    </div>
+    <div id="tabela">    
         <table class="table table-bordered border-dark" border ='1'>
          <thead>
             <tr>
@@ -29,23 +35,24 @@
          </thead>
         <tbody>
         <?php
-         $sql = $conn->prepare('SELECT * FROM medidas');
-         $sql->execute();
-         if($sql->rowCount() > 0){
-           while($rows = $sql->fetch(PDO::FETCH_ASSOC)){         
+         $pesquisar = new Acoes();
+         $rows = $pesquisar->pesquisar();         
+        
+         if(count($rows) > 0){
+          foreach ($rows as $row) {   
         ?>
           <tr>
-            <th scope="col" class="id"><?= $rows['id'] ?></th>
-            <td><?= $rows['eixo_relacionado'] ?></td>
-            <td><?= $rows['programa_relacionado'] ?></td>
-            <td><?= $rows['compromisso_relacionado'] ?></td>
-            <td><?= $rows['problema'] ?></td>
-            <td><?= $rows['causas_criticas'] ?></td>
-            <td><?= $rows['acoes_criticas'] ?></td>            
+            <th scope="col" class="id"><?= $row['id']?></th>
+            <td><?= $row['eixo_relacionado'] ?></td>
+            <td><?= $row['programa_relacionado'] ?></td>
+            <td><?= $row['compromisso_relacionado'] ?></td>
+            <td><?= $row['problema'] ?></td>
+            <td><?= $row['causas_criticas'] ?></td>
+            <td><?= $row['acoes_criticas'] ?></td>            
           </tr>    
         <?php
-           }
-          }         
+          }
+        }         
         ?>
        </tbody>
        </table>

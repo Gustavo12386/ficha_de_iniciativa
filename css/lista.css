@@ -16,3 +16,19 @@ h1{
     height: 40px;
     cursor: pointer;  
 }
+
+.botao4{
+    border:none;
+    float:left;
+    height:37px;
+    border-radius:0 5px 5px 0;
+    width:100px;
+    font-weight:bold;
+    background:#83e4e7;
+    margin-left: 238px;
+    margin-top: -37px;
+}
+
+.form-control{
+  margin-left: 37px;  
+}

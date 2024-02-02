@@ -1,9 +1,9 @@
 <?php
 
 require 'config.php';
-require 'Insert.php';
+require 'Acoes.php';
 
-$envio = new Insert();
+$envio = new Acoes();
 
 $eixo = $_POST['eixo_relacionado'];
 $programa = $_POST['programa_relacionado'];
@@ -18,8 +18,8 @@ $acoes = $_POST['acoes_criticas'];
 if($envio->enviar($eixo, $programa, $compromisso, $cod_problema, $problema,
    $cod_causas, $causas, $cod_acoes, $acoes) == false)
    {
-   session_start();
-   $_SESSION['error'] = $error;
-   header("Location: erro.php?mensagem=erro");
+      session_start();
+      $_SESSION['error'] = $error;
+      header("Location: erro.php?mensagem=erro");
    }
 ?>
