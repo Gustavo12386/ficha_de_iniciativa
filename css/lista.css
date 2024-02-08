@@ -9,7 +9,7 @@ h1{
   font-weight: normal;
 }
 
-.botao3{
+.botao{
     margin-top: 20px;
     margin-left: 39px;
     width: 110px;
@@ -17,18 +17,24 @@ h1{
     cursor: pointer;  
 }
 
-.botao4{
-    border:none;
+.botao-pesquisa{    
+    border-width: 1px;
     float:left;
     height:37px;
-    border-radius:0 5px 5px 0;
-    width:100px;
-    font-weight:bold;
-    background:#83e4e7;
-    margin-left: 238px;
-    margin-top: -37px;
+    border-radius:5px 5px 5px 5px;
+    width:100px;  
+}
+
+.botao-pesquisa:hover{
+    background-color: #dddbdbb2;
+}
+
+#sub-container{ 
+    display: flex;
+    justify-content: center;
+    gap: .3%;
 }
 
 .form-control{
-  margin-left: 37px;  
+  margin-left: 37px; 
 }
