@@ -12,6 +12,9 @@ require 'post/Acoes.php';
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="./js/pesquisa_eixo.js"></script>
+    <script src="./js/pesquisa_programa.js"></script>
+    <script src="./js/pesquisa_compromisso.js"></script>
     <title>Lista</title>
 </head>
 <body>
@@ -19,11 +22,11 @@ require 'post/Acoes.php';
       <h1>Informações Registradas</h1>  
     </div>  
     <div id="sub-container">           
-    <input type="search" class="form-control w-25" placeholder="pesquisar por eixo" id="pesquisar">
+    <input type="search" class="form-control w-25" placeholder="pesquisar por eixo" id="pesquisar_eixo">
         <button onclick="searchData()" class="botao-pesquisa">pesquisar</button>
-    <input type="search" class="form-control w-25" placeholder="pesquisar por programa" id="pesquisar">
+    <input type="search" class="form-control w-25" placeholder="pesquisar por programa" id="pesquisar_programa">
         <button onclick="searchData()" class="botao-pesquisa">pesquisar</button> 
-    <input type="search" class="form-control w-25" placeholder="pesquisar por compromisso" id="pesquisar">
+    <input type="search" class="form-control w-25" placeholder="pesquisar por compromisso" id="pesquisar_compromisso">
         <button onclick="searchData()" class="botao-pesquisa">pesquisar</button>
     </div>
     <div id="tabela">    

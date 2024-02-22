@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Tempo de geração: 26/01/2024 às 12:31
--- Versão do servidor: 10.4.28-MariaDB
--- Versão do PHP: 8.2.4
+-- Host: 127.0.0.1:3306
+-- Tempo de geração: 22-Fev-2024 às 00:44
+-- Versão do servidor: 8.0.31
+-- versão do PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,18 +24,21 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `compromisso`
+-- Estrutura da tabela `compromisso`
 --
 
-CREATE TABLE `compromisso` (
-  `id_compromisso` int(11) NOT NULL,
-  `cod_compromisso` int(11) NOT NULL,
+DROP TABLE IF EXISTS `compromisso`;
+CREATE TABLE IF NOT EXISTS `compromisso` (
+  `id_compromisso` int NOT NULL AUTO_INCREMENT,
+  `cod_compromisso` int NOT NULL,
   `desc_compromisso` varchar(255) NOT NULL,
-  `cod_des_programa` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  `cod_des_programa` int NOT NULL,
+  PRIMARY KEY (`id_compromisso`),
+  KEY `fk_programa` (`cod_des_programa`)
+) ENGINE=InnoDB AUTO_INCREMENT=245 DEFAULT CHARSET=utf8mb3;
 
 --
--- Despejando dados para a tabela `compromisso`
+-- Extraindo dados da tabela `compromisso`
 --
 
 INSERT INTO `compromisso` (`id_compromisso`, `cod_compromisso`, `desc_compromisso`, `cod_des_programa`) VALUES
@@ -287,16 +290,18 @@ INSERT INTO `compromisso` (`id_compromisso`, `cod_compromisso`, `desc_compromiss
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `eixo`
+-- Estrutura da tabela `eixo`
 --
 
-CREATE TABLE `eixo` (
-  `cod_eixo_estrategico` int(11) NOT NULL,
-  `nome_eixo_estrategico` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+DROP TABLE IF EXISTS `eixo`;
+CREATE TABLE IF NOT EXISTS `eixo` (
+  `cod_eixo_estrategico` int NOT NULL AUTO_INCREMENT,
+  `nome_eixo_estrategico` varchar(255) NOT NULL,
+  PRIMARY KEY (`cod_eixo_estrategico`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb3;
 
 --
--- Despejando dados para a tabela `eixo`
+-- Extraindo dados da tabela `eixo`
 --
 
 INSERT INTO `eixo` (`cod_eixo_estrategico`, `nome_eixo_estrategico`) VALUES
@@ -323,33 +328,45 @@ INSERT INTO `eixo` (`cod_eixo_estrategico`, `nome_eixo_estrategico`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `medidas`
+-- Estrutura da tabela `medidas`
 --
 
-CREATE TABLE `medidas` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `medidas`;
+CREATE TABLE IF NOT EXISTS `medidas` (
+  `id` int NOT NULL AUTO_INCREMENT,
   `eixo_relacionado` varchar(255) NOT NULL,
   `programa_relacionado` varchar(255) NOT NULL,
   `compromisso_relacionado` varchar(255) NOT NULL,
-  `problema` varchar(255) NOT NULL,
+  `problema` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `causas_criticas` varchar(255) NOT NULL,
-  `acoes_criticas` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `acoes_criticas` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Extraindo dados da tabela `medidas`
+--
+
+INSERT INTO `medidas` (`id`, `eixo_relacionado`, `programa_relacionado`, `compromisso_relacionado`, `problema`, `causas_criticas`, `acoes_criticas`) VALUES
+(1, 'eixo', 'programa', 'compromisso', 'problema', 'causas', 'acoes');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `programa`
+-- Estrutura da tabela `programa`
 --
 
-CREATE TABLE `programa` (
-  `cod_programa_governo` int(11) NOT NULL,
+DROP TABLE IF EXISTS `programa`;
+CREATE TABLE IF NOT EXISTS `programa` (
+  `cod_programa_governo` int NOT NULL AUTO_INCREMENT,
   `desc_programa_governo` varchar(255) NOT NULL,
-  `cod_nome_eixo` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  `cod_nome_eixo` int NOT NULL,
+  PRIMARY KEY (`cod_programa_governo`),
+  KEY `fk_eixo` (`cod_nome_eixo`)
+) ENGINE=InnoDB AUTO_INCREMENT=466 DEFAULT CHARSET=utf8mb3;
 
 --
--- Despejando dados para a tabela `programa`
+-- Extraindo dados da tabela `programa`
 --
 
 INSERT INTO `programa` (`cod_programa_governo`, `desc_programa_governo`, `cod_nome_eixo`) VALUES
@@ -408,78 +425,20 @@ INSERT INTO `programa` (`cod_programa_governo`, `desc_programa_governo`, `cod_no
 (465, 'Proteção dos direitos humanos e a defesa judicial e extrajudicial dos cidadãos e cidadãs', 20);
 
 --
--- Índices para tabelas despejadas
+-- Restrições para despejos de tabelas
 --
 
 --
--- Índices de tabela `compromisso`
+-- Limitadores para a tabela `compromisso`
 --
 ALTER TABLE `compromisso`
-  ADD PRIMARY KEY (`id_compromisso`),
-  ADD KEY `fk_programa` (`cod_des_programa`);
+  ADD CONSTRAINT `fk_programa` FOREIGN KEY (`cod_des_programa`) REFERENCES `programa` (`cod_programa_governo`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
--- Índices de tabela `eixo`
---
-ALTER TABLE `eixo`
-  ADD PRIMARY KEY (`cod_eixo_estrategico`);
-
---
--- Índices de tabela `medidas`
---
-ALTER TABLE `medidas`
-  ADD PRIMARY KEY (`id`);
-
---
--- Índices de tabela `programa`
+-- Limitadores para a tabela `programa`
 --
 ALTER TABLE `programa`
-  ADD PRIMARY KEY (`cod_programa_governo`),
-  ADD KEY `fk_eixo` (`cod_nome_eixo`);
-
---
--- AUTO_INCREMENT para tabelas despejadas
---
-
---
--- AUTO_INCREMENT de tabela `compromisso`
---
-ALTER TABLE `compromisso`
-  MODIFY `id_compromisso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=245;
-
---
--- AUTO_INCREMENT de tabela `eixo`
---
-ALTER TABLE `eixo`
-  MODIFY `cod_eixo_estrategico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
-
---
--- AUTO_INCREMENT de tabela `medidas`
---
-ALTER TABLE `medidas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `programa`
---
-ALTER TABLE `programa`
-  MODIFY `cod_programa_governo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=466;
-
---
--- Restrições para tabelas despejadas
---
-
---
--- Restrições para tabelas `compromisso`
---
-ALTER TABLE `compromisso`
-  ADD CONSTRAINT `fk_programa` FOREIGN KEY (`cod_des_programa`) REFERENCES `programa` (`cod_programa_governo`);
-
---
--- Restrições para tabelas `programa`
---
-ALTER TABLE `programa`
-  ADD CONSTRAINT `fk_eixo` FOREIGN KEY (`cod_nome_eixo`) REFERENCES `eixo` (`cod_eixo_estrategico`);
+  ADD CONSTRAINT `fk_eixo` FOREIGN KEY (`cod_nome_eixo`) REFERENCES `eixo` (`cod_eixo_estrategico`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
